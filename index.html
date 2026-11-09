@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Yossi Shemer</title>
+<meta name="description" content="Yossi Shemer. Product and marketing: positioning, specs and prototypes built with AI. Be'er Sheva, open to Tel Aviv. Selected work, experience and how I work.">
+<link rel="canonical" href="https://yosishe.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yossi Shemer, product and marketing">
+<meta property="og:description" content="I work where marketing meets product: who needs to move, and what will move them. I build with AI, from a needs survey to a live product, page or video.">
+<meta property="og:url" content="https://yosishe.github.io/">
+<meta name="theme-color" content="#F2F4F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1412" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2318201D'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial Narrow,Arial,sans-serif' font-weight='800' font-size='32' fill='%23F2F4F3'%3EYS%3C/text%3E%3Crect x='10' y='50' width='44' height='3' fill='%232343C9'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* DIRECTION LOCK
+   Reference : an engineering spec sheet / release log. Status chips, dates, blue-pencil notes.
+   Color     : cool paper (neutral), graphite ink (dominant), blue-pencil cobalt (accent, links + rules only).
+   Type      : Archivo condensed for headings, IBM Plex Sans for reading, Plex Mono for dates and status.
+   Layout    : one long sheet, sticky index on desktop. First move: email, or open menhoodb7.fyi.
+   Risk      : no photo, no hero image. It reads like a document. */
+:root{
+  --paper:#F2F4F3; --sheet:#FBFCFB; --ink:#18201D; --ink-2:#4A5550; --rule:#D5DBD8; --tint:#ECEFEE;
+  --pencil:#2343C9; --pencil-soft:#E4E9FB;
+  --live:#1E7A4C; --live-bg:#DDF1E5; --scoped:#8A5A00; --scoped-bg:#F7EBCF; --done:#3D4A6B; --done-bg:#E3E7F1;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F1412; --sheet:#151B18; --ink:#E6ECE9; --ink-2:#A3AFA9; --rule:#2A332F; --tint:#1B2320;
+  --pencil:#8EA4FF; --pencil-soft:#1E2747;
+  --live:#7AD9A4; --live-bg:#163324; --scoped:#F0C66B; --scoped-bg:#3A2D10; --done:#B8C3E6; --done-bg:#222A40;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F1412; --sheet:#151B18; --ink:#E6ECE9; --ink-2:#A3AFA9; --rule:#2A332F; --tint:#1B2320;
+  --pencil:#8EA4FF; --pencil-soft:#1E2747;
+  --live:#7AD9A4; --live-bg:#163324; --scoped:#F0C66B; --scoped-bg:#3A2D10; --done:#B8C3E6; --done-bg:#222A40;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:32px 48px;-webkit-font-smoothing:antialiased}
+a{color:var(--pencil);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--pencil);outline-offset:2px;border-radius:2px}
+p{margin:0}
+h2,h3,h4{margin:0}
+
+.sheet{max-width:1160px;margin:0 auto;background:var(--sheet);border-radius:6px;
+  box-shadow:0 1px 2px rgb(0 0 0 / .05),0 8px 28px rgb(0 0 0 / .06);
+  padding:clamp(20px,4vw,52px)}
+
+/* header */
+header{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px 48px;align-items:end;
+  padding-bottom:28px;border-bottom:2px solid var(--ink)}
+.kicker{font:500 .78rem/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:0 0 14px}
+.name{font:800 clamp(2.6rem,6vw,4.2rem)/.92 var(--f-display);font-stretch:72%;letter-spacing:-.01em;margin:0 0 16px}
+.thesis{font-size:1.2rem;line-height:1.45;max-width:38ch;text-wrap:balance}
+.thesis + .thesis{margin-top:10px;font-size:1.02rem;color:var(--ink-2);max-width:48ch}
+.meta{font-size:.92rem;color:var(--ink-2);display:grid;gap:7px;justify-self:end;text-align:end}
+.meta strong{color:var(--ink);font-weight:600}
+.meta .links{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:flex-end}
+.meta .mail{font:500 .92rem/1.3 var(--f-mono)}
+
+/* body grid: index + content */
+.body{display:grid;grid-template-columns:168px minmax(0,1fr);gap:40px 56px;padding-top:36px}
+nav.index{position:sticky;top:24px;align-self:start;display:grid;gap:8px;font:500 .78rem/1.4 var(--f-mono)}
+nav.index a{color:var(--ink-2);text-decoration:none;padding-inline-start:12px;border-inline-start:2px solid var(--rule)}
+nav.index a:hover,nav.index a[aria-current="true"]{color:var(--ink);border-color:var(--pencil)}
+nav.index .n{display:none}
+.content{display:grid;gap:56px;min-width:0}
+
+section > h2{font:700 .8rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:0 0 18px;
+  display:flex;align-items:center;gap:12px}
+section > h2::after{content:"";flex:1;height:1px;background:var(--rule)}
+h3{font:750 clamp(1.3rem,2.2vw,1.55rem)/1.1 var(--f-display);font-stretch:80%;text-wrap:balance}
+h4{font:700 1.05rem/1.2 var(--f-display);font-stretch:88%}
+
+.chip{display:inline-block;font:500 .72rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 8px;border-radius:3px;white-space:nowrap}
+.chip.live{color:var(--live);background:var(--live-bg)}
+.chip.scoped{color:var(--scoped);background:var(--scoped-bg)}
+.chip.done{color:var(--done);background:var(--done-bg)}
+.date{font:500 .78rem/1.3 var(--f-mono);color:var(--ink-2)}
+
+/* now */
+.now{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.now .cell{background:var(--paper);border-radius:4px;padding:14px 16px;display:grid;gap:6px;align-content:start}
+.now .cell p{font-size:.92rem;color:var(--ink-2);line-height:1.5}
+.now .cell p b{color:var(--ink);font-weight:600}
+
+/* work entries */
+.work{display:grid;gap:0}
+.entry{display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:8px 16px;padding-block:24px;border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:0;padding-top:0}
+.entry .num{font:700 1.4rem/1 var(--f-display);font-stretch:72%;color:var(--rule);padding-top:.15em}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .entry .num{color:#3A463F}}
+.entry .main{display:grid;gap:10px;min-width:0}
+.entry .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px}
+.entry .top .who{color:var(--ink-2);font-size:.92rem}
+.entry .body-copy{max-width:66ch;display:grid;gap:8px}
+.entry .body-copy p{font-size:.98rem;line-height:1.55}
+.entry .result{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:baseline;max-width:66ch;
+  border-inline-start:3px solid var(--pencil);padding:4px 0 4px 14px;margin-top:4px}
+.entry .result .k{font:500 .72rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.entry .result p{font-size:.95rem;line-height:1.5}
+.entry .links{display:flex;flex-wrap:wrap;gap:4px 18px;font:500 .85rem/1.3 var(--f-mono)}
+
+/* how I work */
+.how{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px 48px;align-items:start}
+.how .lede{font-size:1.08rem;line-height:1.5;max-width:52ch;text-wrap:pretty}
+ul.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+ul.steps li{position:relative;padding-inline-start:24px;font-size:.98rem;line-height:1.5}
+ul.steps li::before{content:"";position:absolute;inset-inline-start:2px;top:.66em;width:12px;height:2px;background:var(--pencil)}
+ul.steps li b{font-weight:600}
+.why{background:var(--pencil-soft);border-radius:4px;padding:14px 16px;font-size:.95rem;line-height:1.5;grid-column:1 / -1;max-width:80ch}
+
+/* experience */
+.xp{display:grid;gap:0}
+.job{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:6px 24px;padding-block:20px;border-top:1px solid var(--rule)}
+.job:first-of-type{border-top:0;padding-top:0}
+.job .when{font:500 .8rem/1.5 var(--f-mono);color:var(--ink-2);padding-top:.25em}
+.job .role{display:grid;gap:8px;min-width:0}
+.job .org{color:var(--ink-2);font-size:.92rem}
+.job .role p.d{font-size:.95rem;line-height:1.5;max-width:66ch}
+
+/* education + tools */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px}
+.list{display:grid;gap:0}
+.list .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding-block:12px;border-top:1px solid var(--rule);align-items:baseline}
+.list .row:first-child{border-top:0;padding-top:0}
+.list .row .t{font-weight:600}
+.list .row .s{color:var(--ink-2);font-size:.9rem;grid-column:1}
+.list .row .when{font:500 .78rem/1.5 var(--f-mono);color:var(--ink-2);grid-row:1;grid-column:2}
+dl.tools{margin:0;display:grid;gap:12px}
+dl.tools div{display:grid;gap:3px}
+dl.tools dt{font:500 .72rem/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+dl.tools dd{margin:0;font-size:.95rem;line-height:1.5}
+
+/* open source */
+.repos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.repo{background:var(--paper);border-radius:4px;padding:14px 16px;display:grid;gap:6px;align-content:start;text-decoration:none;color:inherit}
+.repo:hover{background:var(--tint)}
+.repo .r{font:500 .85rem/1.3 var(--f-mono);color:var(--pencil)}
+.repo p{font-size:.9rem;color:var(--ink-2);line-height:1.5}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 48px;align-items:end;
+  padding:28px 0 0;border-top:2px solid var(--ink)}
+.contact h3{font-size:clamp(1.6rem,3vw,2.2rem)}
+.contact .big{font:600 clamp(1.1rem,2.4vw,1.5rem)/1.3 var(--f-mono);display:inline-block;margin-top:12px;word-break:break-all}
+.contact .side{display:grid;gap:8px;font-size:.92rem;color:var(--ink-2);justify-self:end;text-align:end}
+.contact .side .links{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:flex-end}
+
+footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font:500 .75rem/1.5 var(--f-mono);color:var(--ink-2)}
+
+@media (max-width:980px){
+  .body{grid-template-columns:minmax(0,1fr)}
+  nav.index{position:static;display:flex;flex-wrap:wrap;gap:6px 14px;padding-bottom:4px}
+  nav.index a{border-inline-start:0;padding-inline-start:0;padding-bottom:2px;border-bottom:2px solid var(--rule)}
+}
+@media (max-width:860px){
+  header,.how,.two,.contact{grid-template-columns:minmax(0,1fr)}
+  .meta,.contact .side{justify-self:start;text-align:start}
+  .meta .links,.contact .side .links{justify-content:flex-start}
+  .content{gap:44px}
+}
+@media (max-width:620px){
+  .now,.repos{grid-template-columns:minmax(0,1fr)}
+  .entry{grid-template-columns:minmax(0,1fr)}
+  .entry .num{display:none}
+  .job{grid-template-columns:minmax(0,1fr)}
+  .entry .result{grid-template-columns:minmax(0,1fr);gap:4px}
+  body{padding-block:16px 32px}
+}
+@media print{
+  body{background:#fff;padding:0} .sheet{box-shadow:none;max-width:none;padding:0} nav.index{display:none}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <div>
+      <p class="kicker">Product and marketing · Be'er Sheva, open to Tel Aviv</p>
+      <h1 class="name">Yossi Shemer</h1>
+      <p class="thesis">I work where marketing meets product, and start every piece with one question: who needs to move, and what will move them?</p>
+      <p class="thesis">I build with AI, from a needs survey to a live product, page or video. Seven years of supporting adults with special needs taught me to listen before I offer a solution.</p>
+    </div>
+    <div class="meta">
+      <span><strong>Open to product and product-marketing roles</strong> in Israel</span>
+      <a class="mail" href="mailto:26yossi262@gmail.com">26yossi262@gmail.com</a>
+      <span class="links">
+        <a href="https://www.linkedin.com/in/yossi--shemer" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/yosishe" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://yosi-out-for-career.vercel.app" target="_blank" rel="noopener">Case study</a>
+      </span>
+    </div>
+  </header>
+
+  <div class="body">
+    <nav class="index" aria-label="Sections">
+      <a href="#now">Now</a>
+      <a href="#work">Selected work</a>
+      <a href="#how">How I work</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education &amp; tools</a>
+      <a href="#open-source">Open source</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="content">
+
+      <section id="now" aria-labelledby="h-now">
+        <h2 id="h-now">Now · November 2026</h2>
+        <div class="now">
+          <div class="cell">
+            <span class="chip scoped">Building</span>
+            <h4>From Prompt to Production</h4>
+            <p>Google × Reichman AI Tech School, with Wix and Base44. My project: a closed, supervised dating platform for adults with intellectual disabilities, for a nonprofit's housing network of about <b>100 members</b>. Guardrails first, then matching.</p>
+            <a class="date" href="https://claude.ai/artifact/8QmAgdwYtdG2smSgBq4Fpm" target="_blank" rel="noopener">The one-page spec sheet</a>
+          </div>
+          <div class="cell">
+            <span class="chip live">Live</span>
+            <h4>Out for Career</h4>
+            <p>Founding product lead of an alumni career network. Live with a core team of community leaders; next it opens to <b>150 to 200 alumni</b>.</p>
+            <a class="date" href="https://yosi-out-for-career.vercel.app" target="_blank" rel="noopener">Case study and narrated demo</a>
+          </div>
+          <div class="cell">
+            <span class="chip done">Since Oct 2026</span>
+            <h4>AI steering committee, Yachdav</h4>
+            <p>Rolling out an AI system that replaces legacy tools costing <b>10,000+ NIS</b>, and building a shift-scheduling app for dozens of staff at the CEO's request.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" aria-labelledby="h-work">
+        <h2 id="h-work">Selected work</h2>
+        <div class="work">
+
+          <article class="entry">
+            <div class="num">01</div>
+            <div class="main">
+              <div class="top"><h3>Out for Career, an alumni career network</h3><span class="chip live">Live</span><span class="who">Founding Product Lead · volunteer · 2026 to present</span></div>
+              <div class="body-copy">
+                <p>A private community where alumni who left the Haredi world help each other into careers in tech. A needs survey of 19 alumni put lectures first (16 of 19) and mentoring last (3 of 19), so I recommended dropping the mentoring bot that had been planned.</p>
+                <p>I wrote the spec, built a design system from the parent organization's logo, ran a 15-second teaser in July and a 22-second launch film from real meetup photos in September. The members-only platform was built with AI agents: Google sign-in plus admin approval, opt-in company introductions.</p>
+              </div>
+              <div class="result"><span class="k">Where it stands</span><p>Live and iterating with a core team of community leaders, before rollout to 150 to 200 alumni.</p></div>
+              <div class="links">
+                <a href="https://yosi-out-for-career.vercel.app" target="_blank" rel="noopener">Case study + 63-second demo</a>
+                <a href="https://outforcareer.com" target="_blank" rel="noopener">outforcareer.com</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="num">02</div>
+            <div class="main">
+              <div class="top"><h3>Landing page and 23-second video for a men's circle</h3><span class="chip live">Live</span><span class="who">For an independent facilitator in Be'er Sheva · 2026</span></div>
+              <div class="body-copy">
+                <p>Specced with the founder from positioning: the real competitor is the belief that men must carry it all alone. The page leads with "Man, you don't have to carry it all alone", one low-commitment call to action, and a short video. No therapy language, because this audience bounces from it.</p>
+                <p>His answers to a 27-question brief replaced every placeholder. After launch he asked what happens after the 20 sessions, so the page now answers that. I knew the audience from facilitating a men's circle in the same community in 2022 and 2023.</p>
+              </div>
+              <div class="result"><span class="k">Where it stands</span><p>Live for the cycle that opened 2 November 2026.</p></div>
+              <div class="links"><a href="https://menhoodb7.fyi" target="_blank" rel="noopener">menhoodb7.fyi</a></div>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="num">03</div>
+            <div class="main">
+              <div class="top"><h3>Growth funnel and creative for an ad-tech hiring challenge</h3><span class="chip done">Prototype</span><span class="who">Free-IQ-test quiz funnel · 2026</span></div>
+              <div class="body-copy">
+                <p>I mapped 19 competitor quiz funnels. The common pattern holds the score hostage until payment, so I positioned on trust instead: a visible line between what is free and what needs an account, nothing blurred.</p>
+                <p>Three creatives with ad-to-page message match, three A/B tests with decision rules set in advance, and a measurement spec. The KPI is accounts per visit, not click-through rate.</p>
+              </div>
+              <div class="result"><span class="k">Scope</span><p>A live prototype with the test designs. No live experiment was run.</p></div>
+              <div class="links"><a href="https://yosishe.github.io/iqly-flow/" target="_blank" rel="noopener">yosishe.github.io/iqly-flow</a></div>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="num">04</div>
+            <div class="main">
+              <div class="top"><h3>Video series for three audiences</h3><span class="chip done">Delivered</span><span class="who">Business advisory and investment firm · 2026</span></div>
+              <div class="body-copy">
+                <p>One investment model, three angles: investors, managers, company owners. A value message for each and short videos to replace the firm's text messages, with a claims book for the client's sign-off.</p>
+                <p>Produced in Hebrew with Remotion and ElevenLabs. No promised returns and no AI-generated people.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="num">05</div>
+            <div class="main">
+              <div class="top"><h3>Research tooling for a rare-disease nonprofit</h3><span class="chip live">In use</span><span class="who">Yad L'Neshima (CCHS Israel) · AI Product Lead, volunteer · 2026 to present</span></div>
+              <div class="body-copy">
+                <p>A tagging scheme for the research literature on CCHS, a rare breathing disorder, built with the chief scientist. The AI proposes tags and an expert confirms each one. Piloted on 14 papers over 8 feedback rounds, with results turned into decision decks.</p>
+              </div>
+              <div class="links"><a href="https://github.com/yosishe/cchs-evidence-navigator-zoomcamp" target="_blank" rel="noopener">Open-source companion: evidence navigator</a></div>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="num">06</div>
+            <div class="main">
+              <div class="top"><h3>Shift roster to calendar automation</h3><span class="chip live">In use since Jan 2025</span><span class="who">Yachdav Association, instructor team</span></div>
+              <div class="body-copy">
+                <p>Turns the monthly shift roster into calendar invites for each instructor. Used every month since January 2025. The coordinators were happy with their paid scheduling tool, so the bar for switching was high: I wrote the next spec from a recorded meeting with them and set the pilot's pass criteria before any code.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="num">07</div>
+            <div class="main">
+              <div class="top"><h3>Hands-on AI workshops</h3><span class="chip done">Since 2024</span><span class="who">Independent · non-technical and developer audiences</span></div>
+              <div class="body-copy">
+                <p>Most recent: 5 participants from data, dev and product, 6 September 2026, on Zoom. 100 minutes, 45 of talk and 40 of each person building their own file-based agent. They left with a 65-page guide and a starter kit that is now open source.</p>
+              </div>
+              <div class="links"><a href="https://github.com/yosishe/personal-agent-starter" target="_blank" rel="noopener">personal-agent-starter</a></div>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="num">08</div>
+            <div class="main">
+              <div class="top"><h3>2nd place, FoodTech hackathon</h3><span class="chip done">2023</span><span class="who">Ben-Gurion University</span></div>
+              <div class="body-copy">
+                <p>Wrote and delivered the pitch: alternative protein loses when it fights meat on its own turf, so we targeted omnivores squeezed by the cost of living. Won on marketing and audience fit as much as on the product.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="how" aria-labelledby="h-how">
+        <h2 id="h-how">How I work</h2>
+        <div class="how">
+          <p class="lede">I write the spec and the acceptance criteria, coding agents build it, and I verify the result. When a decision matters, the model extracts and code decides.</p>
+          <ul class="steps">
+            <li><b>Listen first.</b> A survey, a recorded meeting, a 27-question brief. The plan changes when the answers say so.</li>
+            <li><b>Positioning before design.</b> Name the real competitor, which is usually a belief, not a product.</li>
+            <li><b>Metrics set up front.</b> The KPI, the decision rule and the number that must stay at zero, before any code.</li>
+            <li><b>Agents as a team.</b> Plan, build, review in turns, with privacy, consent and accessibility checked along the way.</li>
+          </ul>
+          <p class="why">Most of this work holds client or member data, so the repositories are private. I'm glad to walk through the specs and decisions in conversation.</p>
+        </div>
+      </section>
+
+      <section id="experience" aria-labelledby="h-xp">
+        <h2 id="h-xp">Experience</h2>
+        <div class="xp">
+          <div class="job">
+            <span class="when">2019 – present</span>
+            <div class="role">
+              <h4>Integration Instructor and Shift Coordinator · AI Steering Committee</h4>
+              <span class="org">Yachdav Association (Rashi Foundation)</span>
+              <p class="d">Daily support for adults with special needs and coordination of instructors' shifts. On my own initiative, prepared CEO strategy decks that turned "which tool?" into a decision process: 15 scored scenarios with stop conditions. On the AI steering committee since October 2026.</p>
+            </div>
+          </div>
+          <div class="job">
+            <span class="when">2026 – present</span>
+            <div class="role">
+              <h4>Founding Product Lead</h4>
+              <span class="org">Out for Career · alumni career network of Out for Change · volunteer</span>
+              <p class="d">Research, spec, brand and build, from the first questionnaire to a live members-only site.</p>
+            </div>
+          </div>
+          <div class="job">
+            <span class="when">2026 – present</span>
+            <div class="role">
+              <h4>AI Product Lead, Research Platform</h4>
+              <span class="org">Yad L'Neshima (CCHS Israel) · volunteer</span>
+              <p class="d">Literature tagging scheme with the chief scientist; AI proposes, an expert confirms.</p>
+            </div>
+          </div>
+          <div class="job">
+            <span class="when">2024 – present</span>
+            <div class="role">
+              <h4>AI Workshops</h4>
+              <span class="org">Independent</span>
+              <p class="d">Hands-on sessions for non-technical and developer audiences, with a 65-page guide and an open-source starter kit.</p>
+            </div>
+          </div>
+          <div class="job">
+            <span class="when">2016 – 2022</span>
+            <div class="role">
+              <h4>Volunteer</h4>
+              <span class="org">Beit HaGalgalim</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" aria-labelledby="h-edu">
+        <h2 id="h-edu">Education and tools</h2>
+        <div class="two">
+          <div class="list">
+            <div class="row"><span class="t">From Prompt to Production</span><span class="when">Nov 2026 – present</span><span class="s">Google and Reichman AI Tech School, with Wix and Base44</span></div>
+            <div class="row"><span class="t">B.Sc. Computer Science</span><span class="when">2026</span><span class="s">The Open University of Israel</span></div>
+            <div class="row"><span class="t">AI Transformation Lead</span><span class="when">in progress</span><span class="s">JUMPIN, supported by the Israel Innovation Authority</span></div>
+            <div class="row"><span class="t">Practical Data Science</span><span class="when">2025</span><span class="s">Naya College</span></div>
+          </div>
+          <dl class="tools">
+            <div><dt>Marketing</dt><dd>Positioning, audience surveys, copywriting, landing pages, A/B tests, measurement specs, launch films</dd></div>
+            <div><dt>Product</dt><dd>Needs discovery, PRDs and specs, lean MVPs, iteration with users</dd></div>
+            <div><dt>AI</dt><dd>Claude Code (agents, skills, hooks), Codex, Cursor, Base44</dd></div>
+            <div><dt>Creative</dt><dd>Remotion, ElevenLabs, Seedream, Canva</dd></div>
+            <div><dt>Also</dt><dd>Hebrew (native), English (full professional) · Combat soldier, Kfir Brigade</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="open-source" aria-labelledby="h-oss">
+        <h2 id="h-oss">Open source</h2>
+        <div class="repos">
+          <a class="repo" href="https://github.com/yosishe/personal-agent-starter" target="_blank" rel="noopener">
+            <span class="r">personal-agent-starter</span>
+            <p>Starter kit for a file-based personal AI agent: Obsidian and markdown, six daily commands. Built for the September 2026 workshop.</p>
+          </a>
+          <a class="repo" href="https://github.com/yosishe/token-efficient-skill-optimizer" target="_blank" rel="noopener">
+            <span class="r">token-efficient-skill-optimizer</span>
+            <p>Audit AI skills and prompts for real cost per trigger, and for reference files the model can never reach.</p>
+          </a>
+          <a class="repo" href="https://github.com/yosishe/visual-video-summarizer" target="_blank" rel="noopener">
+            <span class="r">visual-video-summarizer</span>
+            <p>Turn lectures and demos into illustrated study notes with timestamped frames. Hebrew and English, local by default.</p>
+          </a>
+          <a class="repo" href="https://github.com/yosishe/talkbrief" target="_blank" rel="noopener">
+            <span class="r">talkbrief</span>
+            <p>Read a YouTube talk instead of watching it: a slide-by-slide brief where every quote is checked against the transcript.</p>
+          </a>
+          <a class="repo" href="https://github.com/yosishe/cchs-evidence-navigator-zoomcamp" target="_blank" rel="noopener">
+            <span class="r">cchs-evidence-navigator-zoomcamp</span>
+            <p>LLM Zoomcamp project: find the source passages behind a rare-disease literature question, with traceable quotes. Runs locally.</p>
+          </a>
+          <a class="repo" href="https://github.com/yosishe/iqly-flow" target="_blank" rel="noopener">
+            <span class="r">iqly-flow</span>
+            <p>The quiz-funnel prototype from the ad-tech challenge: three A/B test designs, ad creatives and a measurement spec.</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="h-contact">
+        <div class="contact">
+          <div>
+            <h3 id="h-contact">Hiring for product or product marketing in Israel?</h3>
+            <a class="big" href="mailto:26yossi262@gmail.com">26yossi262@gmail.com</a>
+          </div>
+          <div class="side">
+            <span>Be'er Sheva · open to Tel Aviv</span>
+            <span class="links">
+              <a href="https://www.linkedin.com/in/yossi--shemer" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://github.com/yosishe" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://menhoodb7.fyi" target="_blank" rel="noopener">menhoodb7.fyi</a>
+            </span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <span>Yossi Shemer · yosishe.github.io</span>
+    <span>Written by me, built with Claude Code, published on GitHub Pages · updated 9 Nov 2026</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('nav.index a'));
+  var ids=links.map(function(a){return a.getAttribute('href').slice(1)});
+  var secs=ids.map(function(id){return document.getElementById(id)}).filter(Boolean);
+  if(!('IntersectionObserver' in window)||!secs.length)return;
+  var current=null;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)current=e.target.id});
+    links.forEach(function(a){a.setAttribute('aria-current',a.getAttribute('href')==='#'+current?'true':'false')});
+  },{rootMargin:'-20% 0px -65% 0px',threshold:0});
+  secs.forEach(function(s){io.observe(s)});
+})();
+</script>
+</body>
+</html>
