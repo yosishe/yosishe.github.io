@@ -52,8 +52,10 @@ body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--
 a{color:var(--pencil);text-underline-offset:3px;text-decoration-thickness:1px}
 a:hover{text-decoration-thickness:2px}
 a:focus-visible{outline:2px solid var(--pencil);outline-offset:2px;border-radius:2px}
+.skip-link{position:absolute;top:8px;left:16px;z-index:1;padding:8px 14px;background:var(--sheet);transform:translateY(calc(-100% - 12px))}
+.skip-link:focus{transform:none}
 p{margin:0}
-h2,h3,h4{margin:0}
+h2,h3{margin:0}
 
 .sheet{max-width:1160px;margin:0 auto;background:var(--sheet);border-radius:6px;
   box-shadow:0 1px 2px rgb(0 0 0 / .05),0 8px 28px rgb(0 0 0 / .06);
@@ -82,8 +84,8 @@ nav.index .n{display:none}
 section > h2{font:700 .8rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:0 0 18px;
   display:flex;align-items:center;gap:12px}
 section > h2::after{content:"";flex:1;height:1px;background:var(--rule)}
-h3{font:750 clamp(1.3rem,2.2vw,1.55rem)/1.1 var(--f-display);font-stretch:80%;text-wrap:balance}
-h4{font:700 1.05rem/1.2 var(--f-display);font-stretch:88%}
+h3,.contact h2{font:750 clamp(1.3rem,2.2vw,1.55rem)/1.1 var(--f-display);font-stretch:80%;text-wrap:balance}
+.now h3,.job h3{font:700 1.05rem/1.2 var(--f-display);font-stretch:88%}
 
 .chip{display:inline-block;font:500 .72rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;
   padding:5px 8px;border-radius:3px;white-space:nowrap}
@@ -102,8 +104,7 @@ h4{font:700 1.05rem/1.2 var(--f-display);font-stretch:88%}
 .work{display:grid;gap:0}
 .entry{display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:8px 16px;padding-block:24px;border-top:1px solid var(--rule)}
 .entry:first-of-type{border-top:0;padding-top:0}
-.entry .num{font:700 1.4rem/1 var(--f-display);font-stretch:72%;color:var(--rule);padding-top:.15em}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .entry .num{color:#3A463F}}
+.entry .num{font:700 1.4rem/1 var(--f-display);font-stretch:72%;color:var(--ink-2);padding-top:.15em}
 .entry .main{display:grid;gap:10px;min-width:0}
 .entry .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px}
 .entry .top .who{color:var(--ink-2);font-size:.92rem}
@@ -156,7 +157,7 @@ dl.tools dd{margin:0;font-size:.95rem;line-height:1.5}
 /* contact */
 .contact{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 48px;align-items:end;
   padding:28px 0 0;border-top:2px solid var(--ink)}
-.contact h3{font-size:clamp(1.6rem,3vw,2.2rem)}
+.contact h2{font-size:clamp(1.6rem,3vw,2.2rem)}
 .contact .big{font:600 clamp(1.1rem,2.4vw,1.5rem)/1.3 var(--f-mono);display:inline-block;margin-top:12px;word-break:break-all}
 .contact .side{display:grid;gap:8px;font-size:.92rem;color:var(--ink-2);justify-self:end;text-align:end}
 .contact .side .links{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:flex-end}
@@ -189,6 +190,7 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <div class="sheet">
 
   <header>
@@ -220,26 +222,26 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="content">
+    <main id="main-content" class="content" tabindex="-1">
 
       <section id="now" aria-labelledby="h-now">
         <h2 id="h-now">Now · November 2026</h2>
         <div class="now">
           <div class="cell">
             <span class="chip scoped">Building</span>
-            <h4>From Prompt to Production</h4>
+            <h3>From Prompt to Production</h3>
             <p>Google × Reichman AI Tech School, with Wix and Base44. My project: a closed, supervised dating platform for adults with intellectual disabilities, for a nonprofit's housing network of about <b>100 members</b>. Guardrails first, then matching.</p>
             <a class="date" href="https://claude.ai/artifact/8QmAgdwYtdG2smSgBq4Fpm" target="_blank" rel="noopener">The one-page spec sheet</a>
           </div>
           <div class="cell">
             <span class="chip live">Live</span>
-            <h4>Out for Career</h4>
+            <h3>Out for Career</h3>
             <p>Founding product lead of an alumni career network. Live with a core team of community leaders; next it opens to <b>150 to 200 alumni</b>.</p>
             <a class="date" href="https://yosi-out-for-career.vercel.app" target="_blank" rel="noopener">Case study and narrated demo</a>
           </div>
           <div class="cell">
             <span class="chip done">Since Oct 2026</span>
-            <h4>AI steering committee, Yachdav</h4>
+            <h3>AI steering committee, Yachdav</h3>
             <p>Rolling out an AI system that replaces legacy tools costing <b>10,000+ NIS</b>, and building a shift-scheduling app for dozens of staff at the CEO's request.</p>
           </div>
         </div>
@@ -367,7 +369,7 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
           <div class="job">
             <span class="when">2019 – present</span>
             <div class="role">
-              <h4>Integration Instructor and Shift Coordinator · AI Steering Committee</h4>
+              <h3>Integration Instructor and Shift Coordinator · AI Steering Committee</h3>
               <span class="org">Yachdav Association (Rashi Foundation)</span>
               <p class="d">Daily support for adults with special needs and coordination of instructors' shifts. On my own initiative, prepared CEO strategy decks that turned "which tool?" into a decision process: 15 scored scenarios with stop conditions. On the AI steering committee since October 2026.</p>
             </div>
@@ -375,7 +377,7 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
           <div class="job">
             <span class="when">2026 – present</span>
             <div class="role">
-              <h4>Founding Product Lead</h4>
+              <h3>Founding Product Lead</h3>
               <span class="org">Out for Career · alumni career network of Out for Change · volunteer</span>
               <p class="d">Research, spec, brand and build, from the first questionnaire to a live members-only site.</p>
             </div>
@@ -383,7 +385,7 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
           <div class="job">
             <span class="when">2026 – present</span>
             <div class="role">
-              <h4>AI Product Lead, Research Platform</h4>
+              <h3>AI Product Lead, Research Platform</h3>
               <span class="org">Yad L'Neshima (CCHS Israel) · volunteer</span>
               <p class="d">Literature tagging scheme with the chief scientist; AI proposes, an expert confirms.</p>
             </div>
@@ -391,7 +393,7 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
           <div class="job">
             <span class="when">2024 – present</span>
             <div class="role">
-              <h4>AI Workshops</h4>
+              <h3>AI Workshops</h3>
               <span class="org">Independent</span>
               <p class="d">Hands-on sessions for non-technical and developer audiences, with a 65-page guide and an open-source starter kit.</p>
             </div>
@@ -399,7 +401,7 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
           <div class="job">
             <span class="when">2016 – 2022</span>
             <div class="role">
-              <h4>Volunteer</h4>
+              <h3>Volunteer</h3>
               <span class="org">Beit HaGalgalim</span>
             </div>
           </div>
@@ -411,7 +413,7 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
         <div class="two">
           <div class="list">
             <div class="row"><span class="t">From Prompt to Production</span><span class="when">Nov 2026 – present</span><span class="s">Google and Reichman AI Tech School, with Wix and Base44</span></div>
-            <div class="row"><span class="t">B.Sc. Computer Science</span><span class="when">2026</span><span class="s">The Open University of Israel</span></div>
+            <div class="row"><span class="t">Computer science studies</span><span class="s">The Open University of Israel</span></div>
             <div class="row"><span class="t">AI Transformation Lead</span><span class="when">in progress</span><span class="s">JUMPIN, supported by the Israel Innovation Authority</span></div>
             <div class="row"><span class="t">Practical Data Science</span><span class="when">2025</span><span class="s">Naya College</span></div>
           </div>
@@ -458,7 +460,7 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
       <section id="contact" aria-labelledby="h-contact">
         <div class="contact">
           <div>
-            <h3 id="h-contact">Hiring for product or product marketing in Israel?</h3>
+            <h2 id="h-contact">Hiring for product or product marketing in Israel?</h2>
             <a class="big" href="mailto:26yossi262@gmail.com">26yossi262@gmail.com</a>
           </div>
           <div class="side">
@@ -472,7 +474,7 @@ footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between
         </div>
       </section>
 
-    </div>
+    </main>
   </div>
 
   <footer>
